@@ -1,0 +1,46 @@
+jQuery(document).ready(function($){
+	$("#main").autoTable({
+		title:'@{$this->title}',
+		source:'@{$this->source}',
+		button_align:'left',
+		limit:'10',
+		fields:{
+			ID:{
+				type:"text",
+				title:"ID",
+				key:true,
+				create:false,
+				edit:false,
+				searchable:false,
+			},
+			user_login:{
+				title:"Username",
+				searchable:true,
+				required:true,
+			},
+			user_pass:{
+				title:"Password",
+				searchable:false,
+				required:true,
+				edit:false,
+				type:'password',
+			},
+			display_name:{
+				title:"Name",
+				searchable:true,
+				create:false,
+			},
+			user_email:{
+				title:"Email",
+				searchable:true,
+				required:true,
+			},
+
+		},
+		buttons:[
+			{title:'CANCEL',class:'btn-default'},
+			{title:'SAVE',class:'btn-primary'}
+		]
+	});
+	$("#main").autoTable("load");
+});

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery - autoTable</title>
+<link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+<link rel="stylesheet" type="text/css" href="css/auto.css"/>
+<script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.auto.js"></script>
+<script>
+jQuery(document).ready(function(){
+	$("#main").autoTable({
+		title:'Students',
+		source:'json.php',
+		button_align:'left',
+		limit:'10',
+		fields:{
+			id:{
+				type:"text",
+				title:"NIK",
+				key:true,
+				create:false,
+				edit:false
+			},
+			name:{
+				title:"Name",
+				searchable:true,
+				required:true,
+			},
+			city:{
+				title:"City",
+				type:"select",
+				searchable:true,
+				options:[
+					{value:'Jakarta',text:'Jakarta'},
+					{value:'Bekasi',text:'Bekasi'},
+					{value:'Depok',text:'Depok'}
+				],
+				required:true,
+			},
+			date_of_birth:{
+				title:"Date Of Birth",
+				type:"date",
+				searchable:true,
+				required:true,
+			},
+			register_date:{
+				title:"Register Date",
+				type:"date",
+				required:true,
+			},
+			status:{
+				title:"Status",
+				type:"radio",
+				options:[
+					{value:'ACTIVE',text:'ACTIVE'},
+					{value:'PASSIVE',text:'PASSIVE'}
+				],
+				required:true,
+			},
+		},
+		buttons:[
+			{title:'CANCEL',class:'btn-default'},
+			{title:'SAVE',class:'btn-primary'}
+		]
+	});
+	$("#main").autoTable("load");
+});
+</script>
+</head>
+<body>
+<div align="center" style="margin-top: 50px">
+<div id="main" style="padding: 20px"></div>
+</div>
+</body>
+</html>
